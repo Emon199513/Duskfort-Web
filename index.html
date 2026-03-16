@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harun Or Rashid | The Blue Ring's Shadow Official</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;900&family=Inter:wght@300;400;600&display=swap');
+        
+        :root { --neon-blue: #00f2ff; --neon-gold: #ffaa00; --bg: #03050a; --glass: rgba(255, 255, 255, 0.03); }
+        
+        body { background: var(--bg); color: #e0e0e0; font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; }
+        
+        /* Grid Background Effect */
+        .bg-effect { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
+                      background: radial-gradient(circle at 20% 30%, #001f3f 0%, transparent 40%),
+                                  radial-gradient(circle at 80% 70%, #1a0f00 0%, transparent 40%); opacity: 0.6; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav { padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); letter-spacing: 4px; font-weight: 900; }
+
+        /* Hero Section - Larger Cover */
+        .hero { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; padding: 100px 0; align-items: center; }
+        .book-frame { position: relative; width: 100%; max-width: 450px; /* Increased Size */ transition: 0.5s; }
+        .book-frame img { width: 100%; height: auto; box-shadow: 0 0 50px rgba(0,0,0,1), 0 0 30px rgba(0,242,255,0.2); border-radius: 4px; }
+        .book-frame:hover { transform: translateY(-10px) rotate(2deg); }
+
+        h1 { font-family: 'Cinzel', serif; font-size: 4rem; line-height: 1; margin: 0; color: #fff; }
+        .tagline { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); margin: 20px 0; letter-spacing: 5px; font-size: 1.1rem; }
+
+        /* Pricing & CTA */
+        .buy-box { background: var(--glass); padding: 40px; border-radius: 4px; border: 1px solid rgba(0,242,255,0.1); margin-top: 40px; }
+        .price { font-size: 2.5rem; color: var(--neon-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; }
+        .btn { background: var(--neon-gold); color: #000; padding: 20px 45px; text-decoration: none; 
+               font-family: 'Orbitron', sans-serif; font-weight: 900; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .btn:hover { box-shadow: 0 0 30px var(--neon-gold); transform: scale(1.05); }
+
+        /* Content Sections */
+        section { padding: 100px 0; }
+        .sec-title { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 20px; }
+        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .detail-item { background: var(--glass); padding: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .detail-item b { color: #fff; display: block; margin-bottom: 5px; }
+
+        /* About Author */
+        .author-box { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center; background: #06080f; padding: 60px; }
+        .author-title { font-family: 'Cinzel', serif; font-size: 2.5rem; color: #fff; margin-bottom: 20px; }
+
+        /* Book 2 Teaser */
+        .next-book { background: linear-gradient(45deg, #001a33, #02040a); padding: 80px; text-align: center; border: 1px dashed var(--neon-blue); margin: 100px 0; }
+        .next-book h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); font-size: 2rem; }
+
+        footer { padding: 80px 0; background: #010204; font-size: 13px; color: #555; border-top: 1px solid #111; }
+        .copyright-text { max-width: 800px; margin: 0 auto; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="bg-effect"></div>
+    <div class="container">
+        <nav>
+            <div class="logo">NEON RAIN PRESS</div>
+            <div style="font-size: 12px; letter-spacing: 2px;">AUTHOR COMMAND CENTER</div>
+        </nav>
+
+        <section class="hero">
+            <div class="book-frame">
+                <img src="The%20Blue%20Ring%20E%20Book%20Cover%20FINAL%20jpg.jpg" alt="The Blue Ring's Shadow">
+            </div>
+            <div class="hero-text">
+                <div class="tagline">THE FALL OF KANE: BOOK ONE</div>
+                <h1>THE BLUE RING'S <br> SHADOW</h1>
+                <div class="buy-box">
+                    <div class="price">.99</div>
+                    <div style="font-size: 14px; opacity: 0.7;">AVAILABLE WORLDWIDE ON AMAZON KDP</div>
+                    <a href="https://www.amazon.com/dp/B0GSMZBDK8" class="btn">BUY ON AMAZON</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="details">
+            <div class="sec-title">// PUBLICATION DETAILS</div>
+            <div class="details-grid">
+                <div class="detail-item"><b>GENRE</b>Neo-Noir / Cyberpunk Thriller</div>
+                <div class="detail-item"><b>FORMAT</b>eBook (Kindle)</div>
+                <div class="detail-item"><b>LENGTH</b>270 Pages</div>
+                <div class="detail-item"><b>TRIM SIZE</b>6" × 9"</div>
+                <div class="detail-item"><b>ASIN</b>B0GSMZBDK8</div>
+                <div class="detail-item"><b>PUBLISHER</b>Neon Rain Press</div>
+            </div>
+        </section>
+
+        <section class="author-box">
+            <div class="sec-title" style="grid-column: 1 / -1;">// THE ARCHITECT</div>
+            <div style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--neon-blue); transform: rotate(-90deg);">HARUN OR RASHID</div>
+            <div>
+                <div class="author-title">HARUN OR RASHID</div>
+                <p>Fiction Writer • Thriller Ghostwriter • World-Building Architect. His narratives explore the moral cost of absolute control and the untapped potential of the "Third Mind" in a world slowly surrendering itself to algorithms. Fuelled by the idea that every shadow carries a secret, and every secret has a heartbeat.</p>
+            </div>
+        </section>
+
+        <div class="next-book">
+            <p style="letter-spacing: 5px; font-size: 12px;">CONTINUE THE RECKONING</p>
+            <h2>CASE FILE 45-A</h2>
+            <p>BOOK TWO | THE FOUNDING FAMILIES. THE SIXTY-EIGHT-YEAR LEDGER.</p>
+            <div style="margin-top: 30px; color: var(--neon-blue); font-family: 'Orbitron'; font-size: 13px;">COMING SOON</div>
+        </div>
+
+        <footer>
+            <div class="copyright-text">
+                <p><b>Legal Disclaimer:</b> This is a fiction work. All characters, organizations, places, and events portrayed in this novel are either products of the author’s imagination or are used fictitiously. Any resemblance to actual people, living or dead, or actual events is purely coincidental. The story is set entirely in the fictional city of Duskfort.</p>
+                <p>Copyright © 2026 <b>Harun Or Rashid</b>. All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means without prior written permission.</p>
+                <p style="margin-top: 40px; color: #222; text-align: center; letter-spacing: 10px;">NEON RAIN PRESS</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
