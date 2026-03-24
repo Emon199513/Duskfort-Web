@@ -3,76 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harun Or Rashid | The Blue Ring's Shadow Official</title>
+    <title>Harun Or Rashid | The Duskfort Trilogy</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;900&family=Inter:wght@300;400;600&display=swap');
-        :root { --neon-blue: #00f2ff; --neon-gold: #ffaa00; --bg: #03050a; --glass: rgba(255, 255, 255, 0.03); }
-        body { background: var(--bg); color: #e0e0e0; font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; overflow-x: hidden; }
-        .bg-effect { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 30%, #001f3f 0%, transparent 40%), radial-gradient(circle at 80% 70%, #1a0f00 0%, transparent 40%); opacity: 0.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        nav { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); letter-spacing: 2px; font-size: 14px; }
-        
-        /* Responsive Hero Section */
-        .hero { display: flex; flex-direction: row; gap: 40px; padding: 80px 0; align-items: center; }
-        .book-frame { flex: 1; max-width: 400px; }
-        .book-frame img { width: 100%; height: auto; box-shadow: 0 0 50px rgba(0,0,0,1), 0 0 20px rgba(0,242,255,0.2); border-radius: 4px; }
-        .hero-text { flex: 1.2; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; line-height: 1; margin: 0; color: #fff; }
-        .tagline { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); margin: 15px 0; letter-spacing: 3px; font-size: 1rem; }
-        .buy-box { background: var(--glass); padding: 30px; border-radius: 4px; border: 1px solid rgba(0,242,255,0.1); margin-top: 30px; }
-        .price { font-size: 2.2rem; color: var(--neon-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; }
-        .btn { background: var(--neon-gold); color: #000; padding: 18px 40px; text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: 900; display: inline-block; margin-top: 15px; transition: 0.3s; width: 100%; text-align: center; box-sizing: border-box; }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding: 40px 0; }
-            h1 { font-size: 2.5rem; }
-            .book-frame { max-width: 280px; margin: 0 auto; }
-            .logo { font-size: 12px; }
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-gold: #ffaa00;
+            --neon-red: #ff0033;
+            --bg: #03050a;
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
-        section { padding: 60px 0; }
-        .sec-title { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 20px; }
-        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
-        .detail-item { background: var(--glass); padding: 15px; border: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
-        footer { padding: 40px 0; background: #010204; font-size: 11px; color: #555; text-align: center; border-top: 1px solid #111; }
+        body {
+            background: var(--bg);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .bg-effect {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 30%, #001f3f 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, #1a0f00 0%, transparent 40%);
+            opacity: 0.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            padding: 80px 0;
+            align-items: center;
+        }
+
+        .book-frame { flex: 1; max-width: 400px; }
+        .book-frame img {
+            width: 100%; height: auto;
+            box-shadow: 0 0 50px rgba(0,0,0,1), 0 0 20px rgba(0,242,255,0.2);
+            border-radius: 4px;
+        }
+
+        .hero-text { flex: 1.2; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; margin: 0; color: #fff; }
+        .tagline { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); margin: 15px 0; letter-spacing: 3px; }
+
+        .buy-box {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid rgba(0,242,255,0.1);
+            margin-top: 30px;
+        }
+
+        .price { font-size: 2.2rem; color: var(--neon-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; }
+
+        .btn {
+            background: var(--neon-gold);
+            color: #000;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            display: inline-block;
+            margin-top: 15px;
+            width: 100%;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* TRILOGY SECTION */
+        .trilogy { text-align: center; padding: 80px 0; }
+        .trilogy h2 { font-family:'Cinzel', serif; font-size:2.2rem; color:#fff; }
+        .trilogy-grid {
+            display:flex; gap:30px; justify-content:center; flex-wrap:wrap;
+        }
+        .tri-item { max-width:280px; }
+        .tri-item img { width:100%; border-radius:4px; }
+
+        /* CHAPTER PREVIEW */
+        .chapter { padding:80px 0; max-width:900px; margin:auto; }
+
+        /* ABOUT */
+        .about { padding:80px 0; max-width:900px; margin:auto; }
+
+        footer {
+            padding: 40px 0;
+            background: #010204;
+            font-size: 11px;
+            color: #555;
+            text-align: center;
+            border-top: 1px solid #111;
+        }
+
     </style>
 </head>
-<body>
-    <div class="bg-effect"></div>
-    <div class="container">
-        <nav><div class="logo">NEON RAIN PRESS</div></nav>
-        <section class="hero">
-            <div class="book-frame">
-                <img src="cover.jpg" alt="The Blue Ring's Shadow">
-            </div>
-            <div class="hero-text">
-                <div class="tagline">THE FALL OF KANE: BOOK ONE</div>
-                <h1>THE BLUE RING'S SHADOW</h1>
-                <div class="buy-box">
-                    <div class="price">$2.99</div>
-                    <div style="font-size: 12px; opacity: 0.7;">LIVE ON AMAZON KDP</div>
-                    <a href="https://www.amazon.com/dp/B0GSMZBDK8" class="btn">BUY ON AMAZON</a>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="sec-title">// PUBLICATION DETAILS</div>
-            <div class="details-grid">
-                <div class="detail-item"><b>GENRE</b>Neo-Noir Thriller</div>
-                <div class="detail-item"><b>FORMAT</b>Kindle eBook</div>
-                <div class="detail-item"><b>LENGTH</b>270 Pages</div>
-                <div class="detail-item"><b>ASIN</b>B0GSMZBDK8</div>
-            </div>
-        </section>
-    </div>
 
-    <footer>
-        © 2026 HARUN OR RASHID | ALL RIGHTS RESERVED
-        <br>
-        Contact: <a href="mailto:kemon8784@gmail.com">kemon8784@gmail.com</a>
-    </footer>
+<body>
+
+<div class="bg-effect"></div>
+<div class="container">
+
+    <!-- NAV -->
+    <nav><div class="logo">NEON RAIN PRESS</div></nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="book-frame">
+            <img src="https://raw.githubusercontent.com/Emon199513/Duskfort-Web/main/images/blue-rings-shadow-final.jpg" alt="The Blue Ring's Shadow">
+        </div>
+
+        <div class="hero-text">
+            <div class="tagline">THE FALL OF KANE — BOOK ONE</div>
+            <h1>THE BLUE RING'S SHADOW</h1>
+
+            <div class="buy-box">
+                <div class="price">$2.99</div>
+                <div style="font-size: 12px; opacity: 0.7;">LIVE ON AMAZON KDP</div>
+                <a href="https://www.amazon.com/dp/B0GSMZBDK8" class="btn">BUY ON AMAZON</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRILOGY SECTION -->
+    <section class="trilogy">
+        <h2>THE DUSKFORT TRILOGY</h2>
+
+        <div class="trilogy-grid">
+
+            <div class="tri-item">
+                <img src="https://raw.githubusercontent.com/Emon199513/Duskfort-Web/main/images/blue-rings-shadow-final.jpg">
+                <h3 style="color:var(--neon-blue); font-family:'Orbitron';">BOOK ONE</h3>
+                <p>The Blue Ring's Shadow</p>
+            </div>
+
+            <div class="tri-item">
+                <img src="https://raw.githubusercontent.com/Emon199513/Duskfort-Web/main/images/case-file-45a-final.png">
+                <h3 style="color:var(--neon-gold); font-family:'Orbitron';">BOOK TWO</h3>
+                <p>Case File 45‑A</p>
+            </div>
+
+            <div class="tri-item">
+                <img src="https://raw.githubusercontent.com/Emon199513/Duskfort-Web/main/images/shadows-end-final.png">
+                <h3 style="color:var(--neon-red); font-family:'Orbitron';">BOOK THREE</h3>
+                <p>Shadow's End</p>
+            </div>
+
+        </div>
+
+        <p style="margin-top:40px; font-style:italic; color:#9bdcff;">
+            “Three books. One city. Duskfort doesn’t forgive — it archives.”
+        </p>
+    </section>
+
+    <!-- CHAPTER PREVIEW -->
+    <section class="chapter">
+        <h2 style="font-family:'Cinzel'; color:#fff;">CHAPTER ONE — THE SILENT STREETS</h2>
+        <p style="font-style:italic; color:#9bdcff;">
+            “The city doesn’t kill you with a bullet. It kills you with silence one breath at a time.”
+        </p>
+
+        <p>The city was not empty. It was waiting...</p>
+        <p>(Your excerpt continues here)</p>
+
+        <a href="https://www.amazon.com/dp/B0GSMZBDK8" class="btn" style="max-width:300px; margin:auto; display:block;">
+            Read the Full Book
+        </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <h2 style="font-family:'Cinzel'; color:#fff;">ABOUT THE AUTHOR</h2>
+
+        <p>
+            Harun Or Rashid writes neo‑noir thrillers set in the shadow‑drenched city of Duskfort.
+            His work blends psychological suspense, institutional corruption, and cinematic world‑building.
+        </p>
+
+        <p>
+            He is the creator of <b>The Duskfort Trilogy</b> — a series exploring power, memory, and the cost of truth.
+        </p>
+
+        <p>Follow on Goodreads • Connect on LinkedIn</p>
+    </section>
+
+</div>
+
+<footer>
+    © 2026 HARUN OR RASHID | ALL RIGHTS RESERVED<br>
+    Contact: <a href="mailto:kemon8784@gmail.com">kemon8784@gmail.com</a>
+</footer>
 
 </body>
 </html>
