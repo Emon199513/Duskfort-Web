@@ -3,220 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harun Or Rashid | The Duskfort Trilogy</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+    <title>Neon Rain Press | Harun Or Rashid</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --neon-blue: #00f2ff;
+            --bg-deep: #02050a;
+            --neon-blue: #00d4ff;
             --neon-gold: #ffaa00;
-            --neon-red: #ff0033;
-            --bg: #03050a;
-            --glass: rgba(255, 255, 255, 0.03);
+            --neon-red: #ff4d4d;
+            --text-gray: #b0b0b0;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: var(--bg);
-            color: #e0e0e0;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            line-height: 1.8;
+            background-color: var(--bg-deep);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        .bg-effect {
+        /* Rain Canvas Style */
+        #rainCanvas {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 20% 30%, #001f3f 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, #1a0f00 0%, transparent 40%);
-            opacity: 0.6;
+            pointer-events: none;
+            opacity: 0.4;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
 
-        nav {
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--neon-blue);
-            letter-spacing: 2px;
-            font-size: 14px;
-        }
-
-        /* HERO */
+        /* --- Hero Section --- */
         .hero {
+            height: 100vh;
             display: flex;
-            flex-direction: row;
-            gap: 40px;
-            padding: 80px 0;
             align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background: radial-gradient(circle at 70% 30%, #102030 0%, transparent 50%);
         }
 
-        .book-frame { flex: 1; max-width: 400px; }
-        .book-frame img {
-            width: 100%; height: auto;
-            box-shadow: 0 0 50px rgba(0,0,0,1), 0 0 20px rgba(0,242,255,0.2);
-            border-radius: 4px;
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            letter-spacing: 5px;
+            color: white;
+            text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
+            margin-bottom: 10px;
         }
 
-        .hero-text { flex: 1.2; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; margin: 0; color: #fff; }
-        .tagline { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); margin: 15px 0; letter-spacing: 3px; }
-
-        .buy-box {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 4px;
-            border: 1px solid rgba(0,242,255,0.1);
-            margin-top: 30px;
+        .tagline {
+            font-style: italic;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
         }
 
-        .price { font-size: 2.2rem; color: var(--neon-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; }
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
         .btn {
-            background: var(--neon-gold);
-            color: #000;
-            padding: 18px 40px;
+            padding: 15px 35px;
             text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            display: inline-block;
-            margin-top: 15px;
-            width: 100%;
-            text-align: center;
+            font-weight: bold;
             border-radius: 4px;
+            transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
-        /* TRILOGY SECTION */
-        .trilogy { text-align: center; padding: 80px 0; }
-        .trilogy h2 { font-family:'Cinzel', serif; font-size:2.2rem; color:#fff; }
-        .trilogy-grid {
-            display:flex; gap:30px; justify-content:center; flex-wrap:wrap;
+        .btn-gold {
+            background: linear-gradient(45deg, #b8860b, #ffaa00);
+            color: black;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.4);
         }
-        .tri-item { max-width:280px; }
-        .tri-item img { width:100%; border-radius:4px; }
 
-        /* CHAPTER PREVIEW */
-        .chapter { padding:80px 0; max-width:900px; margin:auto; }
+        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--neon-gold); }
 
-        /* ABOUT */
-        .about { padding:80px 0; max-width:900px; margin:auto; }
+        .btn-outline {
+            border: 1px solid var(--neon-blue);
+            color: white;
+        }
 
-        footer {
-            padding: 40px 0;
-            background: #010204;
-            font-size: 11px;
-            color: #555;
+        .btn-outline:hover { background: var(--neon-blue); color: black; box-shadow: 0 0 20px var(--neon-blue); }
+
+        .featured-book img {
+            width: 280px;
+            border-radius: 5px;
+            box-shadow: 0 0 30px var(--neon-blue);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: 0.5s;
+        }
+
+        /* --- Trilogy Section --- */
+        .section-title {
             text-align: center;
-            border-top: 1px solid #111;
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin: 50px 0;
+            letter-spacing: 3px;
         }
 
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .book-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            border-radius: 8px;
+            transition: 0.4s ease;
+        }
+
+        .book-card span { font-size: 0.8rem; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+        .book-card h3 { font-family: 'Cinzel', serif; margin-bottom: 20px; height: 50px; }
+        .book-card img { width: 180px; margin-bottom: 20px; border-radius: 4px; }
+        .book-card p { font-style: italic; font-size: 0.9rem; color: var(--text-gray); }
+
+        /* Hover Glow Colors */
+        .blue-card:hover { border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(0, 212, 255, 0.3); }
+        .gold-card:hover { border-color: var(--neon-gold); box-shadow: 0 0 25px rgba(255, 170, 0, 0.3); }
+        .red-card:hover { border-color: var(--neon-red); box-shadow: 0 0 25px rgba(255, 77, 77, 0.3); }
+
+        /* --- Quote Section --- */
+        .quote-box {
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #ddd;
+            background: linear-gradient(transparent, rgba(0, 212, 255, 0.05), transparent);
+        }
+
+        /* --- Chapter Preview --- */
+        .chapter-preview {
+            padding: 100px 0;
+            background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+        .chapter-preview::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, var(--bg-deep) 40%, rgba(2, 5, 10, 0.7));
+        }
+
+        .chapter-content { position: relative; z-index: 1; max-width: 600px; }
+        .chapter-content h2 { font-family: 'Cinzel', serif; color: var(--neon-blue); margin-bottom: 20px; }
+        .chapter-content p { font-size: 1.1rem; margin-bottom: 30px; color: #ccc; }
+
+        /* --- Author Section --- */
+        .author-section {
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .profile-pic {
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-layout { flex-direction: column-reverse; }
+            .logo-text { font-size: 2.5rem; }
+        }
     </style>
 </head>
-
 <body>
 
-<div class="bg-effect"></div>
-<div class="container">
+    <canvas id="rainCanvas"></canvas>
 
-    <!-- NAV -->
-    <nav><div class="logo">NEON RAIN PRESS</div></nav>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="book-frame">
-            <img src="images/blue-ring-shadow-final.jpg" alt="The Blue Ring's Shadow">
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="logo-text">NEON RAIN PRESS</h1>
+            <p class="tagline">Stories forged in shadow and light.</p>
+            
+            <div class="hero-layout">
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-gold">EXPLORE BOOKS</a>
+                    <a href="#" class="btn btn-outline">VISIT AMAZON AUTHOR PAGE</a>
+                </div>
+                <div class="featured-book">
+                    <!-- Replace with actual book cover URL -->
+                    <img src="https://m.media-amazon.com/images/I/71X8k795v2L.jpg" alt="Featured Book">
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="hero-text">
-            <div class="tagline">THE FALL OF KANE — BOOK ONE</div>
-            <h1>THE BLUE RING'S SHADOW</h1>
-
-            <div class="buy-box">
-                <div class="price">$2.99</div>
-                <div style="font-size: 12px; opacity: 0.7;">LIVE ON AMAZON KDP</div>
-                <a href="https://www.amazon.com/dp/B0GSMZBDK8" class="btn">BUY ON AMAZON</a>
+    <!-- TRILOGY SECTION -->
+    <section class="container">
+        <h2 class="section-title">THE DUSKFORT TRILOGY</h2>
+        <div class="book-grid">
+            <div class="book-card blue-card">
+                <span>BOOK ONE</span>
+                <h3>The Blue Ring's Shadow</h3>
+                <img src="https://m.media-amazon.com/images/I/71X8k795v2L.jpg" alt="Book 1">
+                <p>The Fall of Kane Begins.</p>
+            </div>
+            <div class="book-card gold-card">
+                <span>BOOK TWO</span>
+                <h3>Case File 45-A</h3>
+                <img src="https://m.media-amazon.com/images/I/81S65-9YyGL.jpg" alt="Book 2">
+                <p>Every secret has a witness.</p>
+            </div>
+            <div class="book-card red-card">
+                <span>BOOK THREE</span>
+                <h3>Shadow's End</h3>
+                <img src="https://m.media-amazon.com/images/I/71u9+S8F6FL.jpg" alt="Book 3">
+                <p>Truth demands a price.</p>
             </div>
         </div>
     </section>
 
-    <!-- TRILOGY SECTION -->
-    <section class="trilogy">
-        <h2>THE DUSKFORT TRILOGY</h2>
-
-        <div class="trilogy-grid">
-
-            <div class="tri-item">
-                <img src="images/blue-ring-shadow-final.jpg">
-                <h3 style="color:var(--neon-blue); font-family:'Orbitron';">BOOK ONE</h3>
-                <p>The Blue Ring's Shadow</p>
-            </div>
-
-            <div class="tri-item">
-                <img src="images/case-file-45-final.png">
-                <h3 style="color:var(--neon-gold); font-family:'Orbitron';">BOOK TWO</h3>
-                <p>Case File 45‑A</p>
-            </div>
-
-            <div class="tri-item">
-                <img src="images/shadowous-end-final.png">
-                <h3 style="color:var(--neon-red); font-family:'Orbitron';">BOOK THREE</h3>
-                <p>Shadow's End</p>
-            </div>
-
+    <!-- QUOTE SECTION -->
+    <section class="quote-box">
+        <div class="container">
+            <p>"Three books. One city. Duskfort doesn't forgive — it archives."</p>
         </div>
-
-        <p style="margin-top:40px; font-style:italic; color:#9bdcff;">
-            “Three books. One city. Duskfort doesn’t forgive — it archives.”
-        </p>
     </section>
 
     <!-- CHAPTER PREVIEW -->
-    <section class="chapter">
-        <h2 style="font-family:'Cinzel'; color:#fff;">CHAPTER ONE — THE SILENT STREETS</h2>
-        <p style="font-style:italic; color:#9bdcff;">
-            “The city doesn’t kill you with a bullet. It kills you with silence one breath at a time.”
-        </p>
-
-        <p>The city was not empty. It was waiting...</p>
-        <p>(Your excerpt continues here)</p>
-
-        <a href="https://www.amazon.com/dp/B0GSMZBDK8" class="btn" style="max-width:300px; margin:auto; display:block;">
-            Read the Full Book
-        </a>
+    <section class="chapter-preview">
+        <div class="container">
+            <div class="chapter-content">
+                <h2>CHAPTER ONE: THE SILENT STREETS</h2>
+                <p>"The city doesn't kill you with a bullet. It kills you with silence one breath at a time."</p>
+                <p>The city was not empty. It was waiting...</p>
+                <a href="#" class="btn btn-gold">Read the Full Book →</a>
+            </div>
+        </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="about">
-        <h2 style="font-family:'Cinzel'; color:#fff;">ABOUT THE AUTHOR</h2>
-
-        <p>
-            Harun Or Rashid writes neo‑noir thrillers set in the shadow‑drenched city of Duskfort.
-            His work blends psychological suspense, institutional corruption, and cinematic world‑building.
-        </p>
-
-        <p>
-            He is the creator of <b>The Duskfort Trilogy</b> — a series exploring power, memory, and the cost of truth.
-        </p>
-
-        <p>Follow on Goodreads • Connect on LinkedIn</p>
+    <!-- ABOUT AUTHOR -->
+    <section class="author-section container">
+        <h2 class="section-title">ABOUT THE AUTHOR</h2>
+        <img src="https://via.placeholder.com/150" alt="Harun Or Rashid" class="profile-pic">
+        <h2 style="font-family: 'Cinzel';">HARUN OR RASHID</h2>
+        <p style="color: var(--neon-blue); letter-spacing: 2px;">Neo-Noir Thriller Author</p>
     </section>
 
-</div>
+    <footer style="text-align: center; padding: 40px; color: #555; font-size: 0.8rem;">
+        &copy; 2023 Neon Rain Press. All Rights Reserved.
+    </footer>
 
-<footer>
-    © 2026 HARUN OR RASHID | ALL RIGHTS RESERVED<br>
-    Contact: <a href="mailto:kemon8784@gmail.com">kemon8784@gmail.com</a>
-</footer>
+    <!-- JAVASCRIPT FOR RAIN EFFECT -->
+    <script>
+        const canvas = document.getElementById('rainCanvas');
+        const ctx = canvas.getContext('2d');
 
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const raindrops = [];
+
+        class Raindrop {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.length = Math.random() * 20 + 10;
+                this.speed = Math.random() * 10 + 5;
+            }
+
+            fall() {
+                this.y += this.speed;
+                if (this.y > canvas.height) {
+                    this.y = -this.length;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.strokeStyle = 'rgba(174, 194, 224, 0.5)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x, this.y + this.length);
+                ctx.stroke();
+            }
+        }
+
+        for (let i = 0; i < 150; i++) {
+            raindrops.push(new Raindrop());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            raindrops.forEach(drop => {
+                drop.fall();
+                drop.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
